@@ -29,7 +29,10 @@ services:
     container_name: nestjs-app
     # depends_on:
     #   - mysql-db
-    build: ./nestjs-app
+    build: 
+      context: ./nestjs-app
+      dockerfile: Dockerfile
+    image: yahhamdi/nestjs-app
     restart: unless-stopped
     env_file: ./.env
     ports:
@@ -55,6 +58,7 @@ services:
     build:
       context: ./nextjs-app
       dockerfile: Dockerfile
+    image: yahhamdi/nextjs-app
     restart: unless-stopped
     env_file: ./.env
     ports:
